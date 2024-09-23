@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 535ab733b93b4a64d8f66f7521530b23
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _renderer: {instanceID: 0}
+  - _highlight: {instanceID: 0}
+  - tilledSprite: {fileID: 2080095960, guid: ba09def60aa6a7c489eff50bcc045017, type: 3}
+  - wateredTilledSprite: {fileID: 2080095960, guid: ba09def60aa6a7c489eff50bcc045017, type: 3}
+  - grassSprite: {fileID: 1225419268, guid: ba09def60aa6a7c489eff50bcc045017, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
