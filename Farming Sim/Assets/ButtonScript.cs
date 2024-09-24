@@ -22,6 +22,8 @@ public class ButtonScript : MonoBehaviour
     public GameObject storeUI;
     private StoreScript storeScript;
 
+    public GameObject launchUI;
+
 
 
     private void Awake()
@@ -66,5 +68,13 @@ public class ButtonScript : MonoBehaviour
     public void Exit()
     {
         storeUI.SetActive(false);
+    }
+
+    public void LaunchExit()
+    {
+        if (launchUI != null)
+        {
+            launchUI.SetActive(false);
+        }
     }
 }
