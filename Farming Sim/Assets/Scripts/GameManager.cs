@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject moneyDisplay;
 
     public GameObject storeUI;
+    public GameObject launchUI;
 
     // Singleton
     public static GameManager instance;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         storeUI.SetActive(false);
+        launchUI.SetActive(false);
 
         launchBtn = GameObject.Find("LaunchBtn");
         launchBtn.SetActive(false);
