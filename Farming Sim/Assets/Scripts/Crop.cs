@@ -31,9 +31,15 @@ public class Crop : MonoBehaviour
         {
             tile = gameObject.GetComponentInParent<Tile>();
             tile.HasCrop = false;
-            Destroy(gameObject);
+            DestroyCrop();
         }
         UpdateCropSprite();
+    }
+
+    public void DestroyCrop()
+    {
+            Destroy(gameObject);
+
     }
 
     // Called when the crop has progressed.

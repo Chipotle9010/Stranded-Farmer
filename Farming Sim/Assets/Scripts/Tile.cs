@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.UI.Image;
 public class Tile : MonoBehaviour
 {
     [SerializeField] private Color _baseColor, _offsetColor;
@@ -14,9 +15,6 @@ public class Tile : MonoBehaviour
 
     public bool tilled;
     public bool HasCrop;
-    public Sprite tilledSprite;
-    public Sprite wateredTilledSprite;
-    public Sprite grassSprite;
     public GameObject cropPrefab;
     public Color tilledColor;
     public Color wateredColor;
@@ -26,25 +24,28 @@ public class Tile : MonoBehaviour
 
     private void Start()
     {
-        //gameObject.GetComponent<SpriteRenderer>().sprite = grassSprite;
         tilled = false;
         originalColor = _renderer.color;
     }
     public void Init(bool isOffset)
     {
         _renderer.color = isOffset ? _offsetColor : _baseColor;
-        //_renderer.sprite = grassSprite;
     }
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(1) && _highlight.active == true)
+        {
+            RightInteract();
+        }
     }
 
     private void OnMouseDown()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            Interact();
+
+                Interact();
         }
     }
 
@@ -78,6 +79,22 @@ public class Tile : MonoBehaviour
         {
             Water();
         }
+    }
+
+    private void RightInteract()
+    {
+        if (HasCrop)
+        {
+            HasCrop = false;
+            curCrop.DestroyCrop();
+            
+        }
+        else if (tilled && !HasCrop)
+        {
+            tilled = false;
+            _renderer.color = originalColor;
+        } 
+
     }
 
     // Called when we interact with a tilled tile and we have crops to plant.
