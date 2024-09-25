@@ -235,13 +235,11 @@ MonoBehaviour:
   _highlight: {fileID: 3704537544563166554}
   tilled: 0
   HasCrop: 0
-  tilledSprite: {fileID: 0}
-  wateredTilledSprite: {fileID: 0}
-  grassSprite: {fileID: 0}
   cropPrefab: {fileID: 9187905848797540206, guid: fee880c3485b681439f0fe11847178ac, type: 3}
   tilledColor: {r: 0.7584905, g: 0.5436826, b: 0.2905161, a: 1}
   wateredColor: {r: 0.6226415, g: 0.43765566, b: 0.2149875, a: 1}
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  harvestableColor: {r: 0.7056604, g: 0.7056604, b: 0.233001, a: 1}
 --- !u!61 &-4617935592715688363
 BoxCollider2D:
   m_ObjectHideFlags: 0

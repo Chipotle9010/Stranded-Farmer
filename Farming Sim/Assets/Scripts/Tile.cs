@@ -7,9 +7,9 @@ using static UnityEngine.UI.Image;
 public class Tile : MonoBehaviour
 {
     [SerializeField] private Color _baseColor, _offsetColor;
-    [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _highlight;
 
+    public SpriteRenderer _renderer;
     private GameManager gameManager;
     private Crop curCrop;
 
@@ -74,6 +74,7 @@ public class Tile : MonoBehaviour
         {
             curCrop.Harvest();
                 HasCrop = false;
+            _renderer.color = tilledColor;
         }
         else
         {
@@ -105,7 +106,7 @@ public class Tile : MonoBehaviour
         curCrop = Instantiate(cropPrefab, transform).GetComponent<Crop>();
         curCrop.Plant(crop);
         curCrop.transform.position = gameObject.transform.position;
-        curCrop.transform.localScale = new Vector3(2f, 3f);
+        curCrop.transform.localScale = new Vector3(2f, 2f);
         curCrop.GetComponent<Renderer>().sortingLayerID = SortingLayer.NameToID("Foreground");
         GameManager.instance.onNewDay += OnNewDay;
         HasCrop = true;
@@ -115,7 +116,6 @@ public class Tile : MonoBehaviour
     void Till()
     {
         tilled = true;
-        //_renderer.sprite = tilledSprite;
         _renderer.color = tilledColor;
     }
     // Called when we interact with a crop tile.
@@ -140,8 +140,12 @@ public class Tile : MonoBehaviour
         }
         else if (curCrop != null)
         {
-            _renderer.color = tilledColor;
-            curCrop.NewDayCheck();
+                _renderer.color = tilledColor;
+                curCrop.NewDayCheck();
+            if (curCrop.CanHarvest())
+            {
+                _renderer.color = tilledColor;
+            }
         }
     }
 }

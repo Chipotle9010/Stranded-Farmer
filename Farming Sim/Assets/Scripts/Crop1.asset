@@ -17,7 +17,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4657b95a8aad8524a84639940346cbce, type: 3}
   - {fileID: 21300000, guid: 8d0cdd210ea366f4bbce92234b874cff, type: 3}
   - {fileID: 21300000, guid: 49787c4d1dff21f47a85c752704555b5, type: 3}
-  - {fileID: 21300000, guid: d0764d47465de934fb74042e876bf009, type: 3}
   readyToHarvestSprite: {fileID: 21300000, guid: d0764d47465de934fb74042e876bf009, type: 3}
   purchasePrice: 5
   sellPrice: 5

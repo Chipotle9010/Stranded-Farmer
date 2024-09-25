@@ -7,7 +7,7 @@ public class Crop : MonoBehaviour
     private Tile tile;
     private CropData curCrop;
     private int plantDay;
-    private int daysSinceLastWatered;
+    public int daysSinceLastWatered;
     public SpriteRenderer sr;
     public static event UnityAction<CropData> onPlantCrop;
     public static event UnityAction<CropData> onHarvestCrop;
@@ -26,20 +26,21 @@ public class Crop : MonoBehaviour
     public void NewDayCheck()
     {
 
-        daysSinceLastWatered++;
-        if (daysSinceLastWatered > 3)
+        if (daysSinceLastWatered >= 1)
         {
             tile = gameObject.GetComponentInParent<Tile>();
             tile.HasCrop = false;
             DestroyCrop();
         }
-        UpdateCropSprite();
+            daysSinceLastWatered++;
+            UpdateCropSprite();
     }
+
 
     public void DestroyCrop()
     {
             Destroy(gameObject);
-
+        
     }
 
     // Called when the crop has progressed.
