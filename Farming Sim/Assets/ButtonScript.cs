@@ -27,14 +27,9 @@ public class ButtonScript : MonoBehaviour
     public GameObject launchUI;
 
 
-
-    private void Awake()
-    {
-        //storeUI.SetActive(false);
-    }
-
     public void StartNextDay()
     {
+        //find gamemanager script
         managerObject = GameObject.Find("Test Player");
         manager = managerObject.GetComponent<GameManager>();
         manager.curDay++;
@@ -42,9 +37,10 @@ public class ButtonScript : MonoBehaviour
         dayDisplay = GameObject.Find("DayTxt");
         dayTxt = dayDisplay.GetComponent<TMP_Text>();
         dayTxt.text = "Day: " + manager.curDay;
-
+        //update day
         manager.cropInventory = manager.cropInventory + Random.Range(0, 5);
 
+        //update seed amount text 
         invDisplay = GameObject.Find("CropInvText");
         invTxt = invDisplay.GetComponent<TMP_Text>();
         invTxt.text = "Seeds: " + manager.cropInventory;
@@ -55,6 +51,7 @@ public class ButtonScript : MonoBehaviour
 
         foreach (GameObject tilePrefab in  tileObjects)
         {
+            //find the tile script on all tiles
             tile = tilePrefab.GetComponent<Tile>();
             tile.OnNewDay();
 
@@ -63,12 +60,13 @@ public class ButtonScript : MonoBehaviour
 
     public void Store()
     {
-
+        //when clicked, open store
         storeUI.SetActive(true);
     }
 
     public void Exit()
     {
+        //exit popup ui when clicked 
         popUp.SetActive(false);
     }
 

@@ -8,6 +8,7 @@ public class LaunchScript : MonoBehaviour
 
         public void LaunchBoat()
     {
+        //when clicked, open game completed ui window
         launchUI.SetActive(true);
         gameObject.SetActive(false);
     }

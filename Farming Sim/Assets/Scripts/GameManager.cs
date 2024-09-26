@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        //disable all ui windows 
         storeUI.SetActive(false);
         launchUI.SetActive(false);
 
@@ -63,12 +64,12 @@ public class GameManager : MonoBehaviour
 
     public void Money()
     {
+        //update money text display
         moneyTxt = moneyDisplay.GetComponent<TMP_Text>();
         moneyTxt.text = "Money: " + money;
     }
 
     // Called when a crop has been planted.
-    // Listening to the Crop.onPlantCrop event.
     public void OnPlantCrop(CropData cop)
     {
         cropInventory--;
@@ -79,7 +80,6 @@ public class GameManager : MonoBehaviour
     }
 
     // Called when a crop has been harvested.
-    // Listening to the Crop.onCropHarvest event.
     public void OnHarvestCrop(CropData crop)
     {
         money += crop.sellPrice;
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    // Do we have enough crops to plant?
+    // Check if the player has enough seeds to plant
     public bool CanPlantCrop()
     {
         return cropInventory > 0;
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("threshhold reached");
             launchBtn.SetActive(true);
+            //if player has all boat pieces, show launch button
         }
     }
 }

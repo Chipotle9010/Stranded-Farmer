@@ -14,12 +14,14 @@ public class StoreScript : MonoBehaviour
 
     private void Awake()
     {
+        //find gamemanager script
         managerObject = GameObject.Find("Test Player");
         manager = managerObject.GetComponent<GameManager>();
         manager.boatProgress = 0;
     }
     public void BuyPiece()
     {
+        //buy boat piece if player has enough money 
         if (manager.money >= piecePrice)
         {
             manager.money = manager.money - piecePrice;
@@ -28,6 +30,7 @@ public class StoreScript : MonoBehaviour
             gameObject.SetActive(false);
             manager.boatProgress++;
             manager.BoatProgressCheck();
+            //check if player has all boat pieces
         }
     }
 
